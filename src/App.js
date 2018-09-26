@@ -97,6 +97,9 @@ const movies = {
   },
 };
 
+
+
+
 class App extends Component {
   render() {
     return (
@@ -105,7 +108,14 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">ReactND - Coding Practice</h1>
         </header>
-        <h2>Favorite Movies</h2>
+		<ul>
+			<h2>Favorite Movies</h2>
+            {profiles.map( profile => {
+                const user = users[profile.userID];
+                const movie = movies[profile.favoriteMovieID];
+                return <li key='{profile.id}'>{user.name}'s favorite movie is {movie.name}</li>
+            })}
+		</ul>
       </div>
     );
   }
